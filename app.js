@@ -1,15 +1,15 @@
 $(document).ready(function() {
 	//add new item
 
-	$("#js-shopping-list-form").submit(function( event ) {
+	$("#js-shopping-list-form").submit(function(event) {
  		event.preventDefault();
- 		 $( ".shopping-list" ).append(
+ 		$(".shopping-list").append(
   			'<li>' +
   				'<span class="shopping-item">' +
   					$("#shopping-list-entry").val() +
   				'</span>' +
   					'<div class="shopping-item-controls">' +
-  						'<button class="shopping-item-toggle">'
+  						'<button class="shopping-item-toggle">' +
   							'<span class="button-label">check</span>' +
   						'</button>' +
           				'<button class="shopping-item-delete">' +
@@ -22,14 +22,15 @@ $(document).ready(function() {
 
 	//delete item from form
 	
-	$(".shopping-list").on('click', '.shopping-item-delete', function(event) {	
+	$(document).on("click", ".shopping-item-delete", function(event) {	
+    console.log(this);
 		$(this).closest("li").remove();	
 	});
 
 	//check and uncheck item
-	$(".shopping-list").on("click", ".shoppping-item-toggle", function(event) {
-		$(this).closest("li").find(".shopping-item").toggleClass(
-			"shopping-item_checked");
+	$(document).on("click", ".shopping-item-toggle", function(event) {
+    console.log($(this).closest("li").find(".shopping-item"));
+		$(this).closest("li").find(".shopping-item").toggleClass("shopping-item-checked");
 	});
 
 });
